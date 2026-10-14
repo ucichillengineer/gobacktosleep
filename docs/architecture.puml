@@ -1,0 +1,23 @@
+@startuml
+!theme plain
+skinparam backgroundColor #FAFCF5
+skinparam componentStyle rectangle
+title Go Back To Sleep — Architecture
+
+actor User
+rectangle "Web browser\n(Vite + React)" as web
+rectangle "Android APK\n(Capacitor WebView)" as android
+rectangle "iOS project\n(Capacitor WKWebView)" as ios
+component "Shared responsive UI\nReact + TypeScript" as app
+database "Device localStorage\n• rituals\n• morning scores\n• reflections" as store
+cloud "YouTube\nembedded player / external links" as youtube
+
+User --> web
+User --> android
+User --> ios
+web --> app
+android --> app
+ios --> app
+app --> store : persists privately
+app --> youtube : plays looping embeds
+@enduml

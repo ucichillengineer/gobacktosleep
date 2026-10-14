@@ -1,0 +1,19 @@
+@startuml
+!theme plain
+title Go Back To Sleep — Daily flow
+start
+:Open app;
+if (Morning check-in saved today?) then (no)
+  :Ask "How did last night go?";
+  :Store score and optional note;
+endif
+:Choose a ritual or calming resource;
+if (Video selected?) then (yes)
+  :Embed YouTube video with loop enabled;
+else (no)
+  :Mark ritual complete;
+endif
+:Answer three gratitude prompts;
+:Save time-stamped reflection locally;
+stop
+@enduml
